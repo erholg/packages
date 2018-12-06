@@ -4,8 +4,8 @@
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
-(def +lib-version+ "4.4.1")
-(def +version+ (str +lib-version+ "-1"))
+(def +lib-version+ "5.3.0")
+(def +version+ (str +lib-version+ "-0"))
 
 (task-options!
  pom  {:project     'cljsjs/openlayers
@@ -18,10 +18,10 @@
 (deftask package []
   (comp
     (download :url (format "https://github.com/openlayers/openlayers/releases/download/v%s/v%s.zip" +lib-version+ +lib-version+)
-              :checksum "555FEADA2D0767132E278AE030BF3694"
+              :checksum "b62f10f07379a6a1c57c1a956e3a50e8"
               :unzip true)
     (download :url (format "https://github.com/openlayers/openlayers/archive/v%s.zip" +lib-version+)
-              :checksum "89636AA3D173B338F59ADAD9DCD9C0F4"
+              :checksum "790c28c25502fa1eb01eb85b222ab4ea"
               :unzip true)
     (sift :move {#"^v([\d\.]*)/ol/ol/" "cljsjs/openlayers/development/ol/"
                  #"^v([\d\.]*)/ol\.ext/" "cljsjs/openlayers/development/ol.ext/"
